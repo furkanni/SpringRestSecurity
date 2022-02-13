@@ -14,6 +14,9 @@ public class BeanController {
     @Autowired
     _02_BeanScope beanScope;
 
+    @Autowired
+    _03_BeanInitialDestroy beanInitialDestroy;
+
     // http://localhost:8080/bean/basic
     @GetMapping("/bean/basic")
     @ResponseBody
@@ -28,6 +31,14 @@ public class BeanController {
     public String getBeanScope(){
 
         return beanBasic.beanBasic().hashCode()+"????" + beanScope.beanScope().hashCode();
+    }
+
+    // http://localhost:8080/bean/initial/destroy
+    @GetMapping("/bean/initial/destroy")
+    @ResponseBody
+    public String getBeanInitialDestroy(){
+
+        return beanBasic.beanBasic().hashCode()+"????" + beanScope.beanScope().hashCode()+"?????"+beanInitialDestroy.beanInitial().hashCode();
     }
 
 
